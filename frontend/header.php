@@ -50,7 +50,7 @@
                                     <li><a class="dropdown-item" href="admin_wisata.php">Kelola Wisata</a></li>
                                     <li><a class="dropdown-item" href="admin_kategori.php">Kelola Kategori</a></li>
                                     <li><a class="dropdown-item" href="admin_users.php">Kelola Users</a></li>
-                                    <li><a class="dropdown-item" href="admin_admins.php">Kelola Admin</a></li>
+                                    <!-- <li><a class="dropdown-item" href="admin_admins.php">Kelola Admin</a></li> -->
                                 </ul>
                             </li>
                         <?php endif; ?>
