@@ -7,7 +7,7 @@ const db = new Sequelize(
   process.env.DB_USER || "root",
   process.env.DB_PASS || "",
   {
-    host: process.env.DB_HOST || "localhost",
+    host: process.env.DB_HOST || "34.172.208.171",
     dialect: "mysql",
     logging: console.log, // Enable logging in development
     pool: {

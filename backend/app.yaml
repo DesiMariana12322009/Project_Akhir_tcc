@@ -10,7 +10,7 @@ env_variables:
   DB_PASS: ""
   # Format: /cloudsql/PROJECT_ID:REGION:INSTANCE_NAME for Cloud SQL
   # For now using localhost for testing - need to setup Cloud SQL
-  DB_HOST: 34.172.208.171
+  DB_HOST: 34.30.191.151
   JWT_SECRET: rahasia-production-key
 
 automatic_scaling:

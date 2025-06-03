@@ -1,0 +1,48 @@
+TUTORIAL GITHUB 
+
+=== CARA JALANIN ===
+-- Backend
+cd backend
+npm install
+npm start
+-- Frontend
+pastikan php terinstall, jalankan:
+cd frontend
+php -S localhost:3000
+
+
+=== KONFIGURASI AWAL ===
+git config --global user.name "(nama)"
+git config --global user.email "(email@example.com)"
+
+=== MEMBUAT REPOSITORY BARU ===
+1. Login ke GitHub.com
+2. Klik tombol "New" atau "+" 
+3. Isi nama repository
+4. Pilih public/private
+5. Klik "Create repository"
+
+=== PERINTAH DASAR GIT ===
+
+Buka folder proyek repository di vscode
+
+Inisialisasi repository lokal:
+git init
+
+Clone repository dari GitHub:
+git remote add origin (url github)
+
+Tambah file ke staging:
+git add .  (untuk semua file)
+
+Commit perubahan:
+git commit -m "Pesan commit"
+
+Push ke GitHub:
+git push origin main
+
+=== WORKFLOW DASAR ===
+1. Edit file/buat file baru
+2. git add . (tambah semua perubahan)
+3. git commit -m "Deskripsi perubahan"
+4. git push origin main
