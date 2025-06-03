@@ -1,0 +1,259 @@
+@host = https://tugas-tekweb.uc.r.appspot.com
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ4ODU3NjQ3LCJleHAiOjE3NDg5NDQwNDd9.v52c32EjLw5nSDxnVZ--aDQ8Cf8_d2c1whEtrePsScE
+
+############################################
+# AUTHENTICATION ENDPOINTS
+############################################
+
+### User Registration
+POST {{host}}/api/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "user@test.com",
+  "password": "user123"
+}
+
+###
+
+### User Login
+POST {{host}}/api/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "user123"
+}
+
+###
+
+### Admin Registration
+POST {{host}}/api/admin/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "admin@test.com",
+  "password": "admin123"
+}
+
+###
+
+### Admin Login
+POST {{host}}/api/admin/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+############################################
+# WISATA ENDPOINTS
+############################################
+
+### Get all wisata (Public - No Auth Required)
+GET {{host}}/api/wisata
+Accept: application/json
+
+###
+
+### Get wisata by id (Public - No Auth Required)
+GET {{host}}/api/wisata/1
+Accept: application/json
+
+###
+
+### Create new wisata (Admin Only)
+POST {{host}}/api/wisata
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama": "Kaliurang",
+  "lokasi": "Sleman, Yogyakarta", 
+  "deskripsi": "Destinasi wisata pegunungan yang sejuk dan indah",
+  "kategori": "Alam",
+  "url_gambar": "https://example.com/kaliurang.jpg"
+}
+
+###
+
+### Update wisata by id (Admin Only)
+PUT {{host}}/api/wisata/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama": "Candi Borobudur Update",
+  "lokasi": "Magelang, Jawa Tengah",
+  "deskripsi": "Candi Buddha terbesar di dunia - Updated",
+  "kategori": "Budaya",
+  "url_gambar": "https://example.com/borobudur-new.jpg"
+}
+
+###
+
+### Delete wisata by id (Admin Only)
+DELETE {{host}}/api/wisata/1
+Authorization: Bearer {{token}}
+
+###
+
+### Search wisata by name or description (Public - No Auth Required)
+GET {{host}}/api/wisata/search?search=borobudur
+Accept: application/json
+
+###
+
+### Search wisata by category (Public - No Auth Required)
+GET {{host}}/api/wisata/search?kategori=budaya
+Accept: application/json
+
+###
+
+### Search wisata by name/description and category (Public - No Auth Required)
+GET {{host}}/api/wisata/search?search=candi&kategori=budaya
+Accept: application/json
+
+###
+
+### Search wisata with no parameters (returns all) (Public - No Auth Required)
+GET {{host}}/api/wisata/search
+Accept: application/json
+
+############################################
+# USER MANAGEMENT ENDPOINTS (Admin Only)
+############################################
+
+### Get all users (Admin Only)
+GET {{host}}/api/users
+Authorization: Bearer {{token}}
+
+###
+
+### Get user by ID (Admin Only)
+GET {{host}}/api/users/1
+Authorization: Bearer {{token}}
+
+###
+
+### Create user (Admin Only)
+POST {{host}}/api/users
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "username": "test",
+  "email": "test@gmail.com",
+  "password": "testgmail"
+}
+
+###
+
+### Update user (Admin Only)
+PUT {{host}}/api/users/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "username": "Budi Update",
+  "password": "newpass123"
+}
+
+###
+
+### Delete user (Admin Only)
+DELETE {{host}}/api/users/1
+Authorization: Bearer {{token}}
+
+############################################
+# KATEGORI ENDPOINTS
+############################################
+
+### Get All Kategori (Public - No Auth Required)
+GET {{host}}/api/kategori
+Accept: application/json
+
+###
+
+### Get Kategori by ID (Public - No Auth Required) 
+GET {{host}}/api/kategori/1
+Accept: application/json
+
+###
+
+### Create Kategori (Admin Only)
+POST {{host}}/api/kategori
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama": "Cagar Budaya"
+}
+
+###
+
+### Update Kategori (Admin Only)
+PUT {{host}}/api/kategori/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama": "Sejarah & Budaya"
+}
+
+###
+
+### Delete Kategori (Admin Only)
+DELETE {{host}}/api/kategori/1
+Authorization: Bearer {{token}}
+
+############################################
+# ADMIN MANAGEMENT ENDPOINTS (Admin Only)
+############################################
+
+### CREATE Admin (Admin Only)
+POST {{host}}/api/admin
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "username": "admin1",
+  "email": "admin1@example.com",
+  "password": "admin123"
+}
+
+###
+
+### GET all Admins (Admin Only)
+GET {{host}}/api/admin
+Authorization: Bearer {{token}}
+
+###
+
+### GET Admin by ID (Admin Only)
+GET {{host}}/api/admin/1
+Authorization: Bearer {{token}}
+
+###
+
+### UPDATE Admin by ID (Admin Only)
+PUT {{host}}/api/admin/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "username": "adminUpdated",
+  "email": "updated@example.com",
+  "password": "newpassword123"
+}
+
+###
+
+### DELETE Admin by ID (Admin Only)
+DELETE {{host}}/api/admin/1
+Authorization: Bearer {{token}}
+
+###

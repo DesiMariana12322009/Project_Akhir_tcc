@@ -1,0 +1,33 @@
+runtime: nodejs20  # Sesuaikan dengan versi Node.js Anda
+service: default  # atau nama service khusus
+
+env_variables:
+  NODE_ENV: production
+  PORT: 8080  # App Engine Standard selalu menggunakan port 8080
+  # Database configuration for Cloud SQL (update with your Cloud SQL instance)
+  DB_NAME: galeri_db
+  DB_USER: root
+  DB_PASS: ""
+  # Format: /cloudsql/PROJECT_ID:REGION:INSTANCE_NAME for Cloud SQL
+  # For now using localhost for testing - need to setup Cloud SQL
+  DB_HOST: 34.30.191.151
+  JWT_SECRET: rahasia-production-key
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10
+
+# Health check configuration
+readiness_check:
+  path: "/"
+  check_interval_sec: 5
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+
+liveness_check:
+  path: "/"
+  check_interval_sec: 30
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
